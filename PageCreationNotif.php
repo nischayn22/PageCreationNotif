@@ -11,7 +11,7 @@ if ( ! defined( 'MEDIAWIKI' ) )
  * @licence GNU GPL v3 or later
  */
 
-define( 'PageCreationNotif_VERSION', '0.1 alpha' );
+define( 'PageCreationNotif_VERSION', '0.1 beta' );
 
 $wgExtensionCredits['semantic'][] = array(
 	'path' => __FILE__,

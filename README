@@ -1,7 +1,7 @@
-NEW USER EMAIL NOTIFICATION EXTENSION
+Page Creation Notification Extension
 
-	Version 1.5
-	© 2006-2007 Rob Church
+	Version 0.1 beta
+	Author Nischay Nahata < nischayn22@gmail.com >
 
 This is free software licenced under the GNU General Public Licence. Please
 see http://www.gnu.org/copyleft/gpl.html for further details, including the
@@ -18,62 +18,35 @@ full text and terms of the license.
 	
 == 1. Introduction ==
 
-The new user email notification extension provides a clean and customisable
-means to send email messages to one or more registered users upon the creation
-of a user account. The behaviour of the extension can be controlled using
-configuration options within the LocalSettings.php file for MediaWiki.
+This simple extension sends emails to users on creation of new pages a.k.a articles.
+Users can set their preferences to recieve or not recieve emails at Special:Preferences.
+This extension was created by Nischay Nahata as a consultant for Wikiworks.com for Texas Instruments
 
 == 2. Installation requirements ==
 
-This extension requires MediaWiki 1.8.0 or later.
+This extension requires MediaWiki 1.18.0 or later.
 
 == 3. Installing the extension ==
 
-To install the extension, place all extension files into a NewUserNotif/
-directory within your MediaWiki extensions/ directory, then edit
-LocalSettings.php and add the following line
+To install the extension, place the extension directory in your MediaWiki's extensions/ directory,
+then edit LocalSettings.php and add the following line
 
-	require_once( "{$IP}/extensions/NewUserNotif/NewUserNotif.php" );
+	include_once("$IP/extensions/PageCreationNotif/PageCreationNotif.php");
 
-== 4. Editing the notification email ==
+== 4. Configuration ==
 
-When preparing the email message to be sent to each recipient, the extension
-relies upon two system messages. You will need to create these if you wish
-to customise them, as detailed below:
-
-MediaWiki:Newusernotifsubj
-	This file contains the subject line for the email;
-	$1 is replaced with the wiki site name from $wgSitename.
-
-MediaWiki:Newusernotifbody
-	This file contains the body text for the email.
-	$1 is replaced with the username of the recipient;
-	$2 is replaced with the username of the new user account;
-	$3 is replaced with the wiki site name from $wgSitename;
-	$4 is replaced with the time and date of the account's creation.
-
-== 5. Further configuration ==
-
-The behaviour of the extension can be tweaked using three configuration
+The behaviour of the extension can be tweaked using configuration
 variables. To override the defaults for these, set them in LocalSettings.php
 underneath the call to the extension file.
 
-$wgNewUserNotifSender
+$wgPCNSender
 	Email address of the sender of the email
 	Defaults to the value of $wgPasswordSender
 
-$wgNewUserNotifTargets
-	Array containing the usernames or identifiers of those who should receive
-	a notification email. Email will not be sent unless the recipient's
-	email address has been validated, where this is required in the site
-	configuration.
-	
-	Defaults to the first user (usually the wiki's primary administrator)
-	
-$wgNewUserNotifEmailTargets
-	Array containing email addresses to which a notification should also be sent
-	Defaults to no additional addresses
+$wgPCNSenderName
+	Name of the sender of the email
+	Defaults to the value of $wgPasswordSenderName
 
 == 6. Feedback ==
 
-All feedback, bug reports, etc. welcome via <robchur@gmail.com>.
+All feedback, bug reports, etc. welcome at <nischayn22@gmail.com>.
