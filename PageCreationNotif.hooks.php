@@ -93,7 +93,7 @@ final class PageCreationNotifHooks {
 	 */
 	public static function onArticleInsertComplete( &$article, User &$user, $text, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, Revision 
 	$revision ) {
-		PageCreationNotifEmailer::notifyOnNewArticle( $article );
+		PageCreationNotifEmailer::notifyOnNewArticle( $article, $user );
 
 		return true;
 	}

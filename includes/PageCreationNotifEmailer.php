@@ -20,7 +20,7 @@ class PageCreationNotifEmailer {
 	 * @since 0.1
 	 *
 	 */
-	public static function notifyOnNewArticle( $article ) {
+	public static function notifyOnNewArticle( $article, $user ) {
 		global $wgPCNSender, $wgPCNSenderName;
 
 		$usersEmail = self::getNotifUsersEmail();
@@ -31,7 +31,14 @@ class PageCreationNotifEmailer {
 			$GLOBALS['wgSitename']
 		);
 
-		$emailText = $subject;
+		$emailText = wfMsgExt(
+			'page-creation-email-body',
+			'parse',
+			$article->getTitle()->getFullText(),
+			$user->getName(),
+			$GLOBALS['wgSitename'],
+			$article->getTitle()->getFullURL()
+		);
 
 		UserMailer::send(
 			$usersEmail,
