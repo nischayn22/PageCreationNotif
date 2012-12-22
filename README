@@ -24,7 +24,7 @@ This extension was created by Nischay Nahata as a consultant for Wikiworks.com f
 
 == 2. Installation requirements ==
 
-This extension requires MediaWiki 1.18.0 or later.
+This extension requires MediaWiki 1.19.0 or later.
 
 == 3. Installing the extension ==
 
@@ -47,6 +47,6 @@ $wgPCNSenderName
 	Name of the sender of the email
 	Defaults to the value of $wgPasswordSenderName
 
-== 6. Feedback ==
+== 5. Feedback ==
 
 All feedback, bug reports, etc. welcome at <nischayn22@gmail.com>.
